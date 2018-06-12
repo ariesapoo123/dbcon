@@ -23,7 +23,7 @@ try:
     (22,22,'NewDelhi','Romantic'),(23,25,'Kolkata','HateStory'),(24,24,'Chandigarh','Comedy')"
     cursor.execute(query5)
 
-    query6 = "insert into Authors_Titles values (556,102,21),(557,101,22),(558,103,24),(559,105,23),(560,104,25)"
+    query6 = "insert into Authors_Titles values (556,206,21),(557,207,22),(558,208,24),(559,209,23),(560,210,25)"
     cursor.execute(query6)
 
     con.commit()
