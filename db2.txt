@@ -1,0 +1,39 @@
+import mysql.connector as pm
+
+try:
+    con = pm.connect(host='localhost', database='acadviewdb', user='root', password='password')
+    cursor = con.cursor()
+    query1 = "insert into Authors values (206,'A','D','Roy'),(207,'R','K','Narayan'),\
+    (208,'S','L','Rushday'),(209,'R','K','Bond'),(210,'J','W','Nehru')"
+    cursor.execute(query1)
+
+    query2 = "insert into Zip_Codes values (11,'UttarPradesh','Lucknow',249014),(12,'Dehradun','Uttarakhand',248001),\
+    (13,'Maharashtra','Mumbai',34987),(14,'UttarPradesh','Lucknow',249014),(15,'Rajasthan','Jaipur',123456)"
+    cursor.execute(query2)
+
+    query3 = "insert into Publishers values(115,'VK Garg','Old Warriors Colony',51,2),(116,'Praful Kumar','Prasang Vihar',53,4),\
+    (117,'AK Gupta','Vijender Nagar',55,3),(118,'Rahul Gupta','Ramvilas Vihar',54,1),(119,'Riya Sen','Sharol Bagh',57,5)"
+    cursor.execute(query3)
+
+    query4 = "insert into Titles values (226,'ASongOfIce',1001,12,2005),(227,'GobletOfFire',1002,11,2003),\
+    (228,'TheLoadRunner',1003,10,2014),(229,'FivePointThreeTw',1004,14,2012),(230,'NeedNoReasons',1005,13,2015)"
+    cursor.execute(query4)
+
+    query5 = "insert into Books values (20,21,'Hyderabad','Thriller'),(21,23,'Bangalore','Classic'),\
+    (22,22,'NewDelhi','Romantic'),(23,25,'Kolkata','HateStory'),(24,24,'Chandigarh','Comedy')"
+    cursor.execute(query5)
+
+    query6 = "insert into Authors_Titles values (556,102,21),(557,101,22),(558,103,24),(559,105,23),(560,104,25)"
+    cursor.execute(query6)
+
+    con.commit()
+except pm.DatabaseError as e:
+    if con:
+        con.rollback()
+        print('Problem occured: ', e)
+finally:
+    if cursor:
+        cursor.close()
+    if con:
+        con.close()
+    print('DONE!!')
