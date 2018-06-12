@@ -3,7 +3,7 @@ import mysql.connector as pm
 try:
     con = pm.connect(host='localhost', database='acadviewdb', user='root', password='password')
     cursor = con.cursor()
-    query1 = "Select * from Publishers where Publisher_ID=13"
+    query1 = "Select * from Publishers where Publisher_ID=117"
     cursor.execute(query1)
     data = cursor.fetchall()
     for row in data:
